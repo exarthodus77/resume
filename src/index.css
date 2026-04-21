@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-primary-bg text-white font-sans;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 5px;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply min-h-screen flex flex-col justify-center py-20 md:py-24;
+  }
+  .panel {
+    @apply bg-panel-bg border border-border-light rounded-[12px] p-6 backdrop-blur-[2px];
+    /* Fallback solid background to prevent flicker */
+    background-color: #111111; /* fallback */
+    background-color: rgba(255, 255, 255, 0.03); /* overrides with transparency */
+  }
+  /* Glass button style (frosted dark bg) */
+  .btn-glass {
+    @apply inline-block px-6 py-3 border border-border-light rounded-[10px] font-medium transition-all duration-200 hover:scale-105 hover:border-white;
+    background-color: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(2px);
+    color: white;
+  }
+  .input-field {
+    @apply w-full bg-primary-bg border border-border-light rounded-[10px] px-4 py-3 text-white focus:outline-none focus:border-white transition-colors;
+  }
+}
