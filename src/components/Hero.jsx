@@ -18,14 +18,7 @@ const Hero = () => {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen)
 
   const openPdf = (pdfPath) => {
-    fetch(pdfPath)
-      .then(response => response.blob())
-      .then(blob => {
-        const blobUrl = URL.createObjectURL(blob)
-        window.open(blobUrl, '_blank')
-        URL.revokeObjectURL(blobUrl)
-      })
-      .catch(error => console.error('Error loading PDF:', error))
+    window.open(pdfPath,'_blank')
     setDropdownOpen(false)
   }
 
@@ -71,13 +64,13 @@ const Hero = () => {
               {dropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-panel-bg border border-border-light rounded-[10px] backdrop-blur-sm z-20 overflow-hidden">
                   <button
-                    onClick={() => openPdf('/pdfs/Syed_Talha_Ahmad_Resume.pdf')}
+                    onClick={() => openPdf('/resume.pdf')}
                     className="block w-full text-left px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors border-b border-border-light"
                   >
                     View Resume
                   </button>
                   <button
-                    onClick={() => openPdf('/pdfs/Certificates.pdf')}
+                    onClick={() => openPdf('/certif.pdf')}
                     className="block w-full text-left px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
                   >
                     View Certificates
